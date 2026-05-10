@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+# Local preview. Uses -H localhost so Webrick listens on BOTH 127.0.0.1 and ::1
+# (macOS often resolves "localhost" to IPv6 only; -H 0.0.0.0 is IPv4-only).
+set -euo pipefail
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+cd "$ROOT"
+# shellcheck source=/dev/null
+source "${ROOT}/bin/ruby-env.sh"
+academicwebsite_prepend_ruby || exit 1
+
+HOST="${JEKYLL_HOST:-localhost}"
+PORT="${JEKYLL_PORT:-4000}"
+
+echo "Starting Jekyll…"
+echo "  → http://127.0.0.1:${PORT}/"
+echo "  → http://localhost:${PORT}/"
+echo "(Stop with Ctrl+C. Set JEKYLL_PORT=4001 if 4000 is busy. JEKYLL_LIVERELOAD=0 disables LiveReload.)"
+echo "Note: Editing _config.yml does not hot-reload — stop the server and run ./bin/serve again."
+echo "Build without surprises: ./bin/build   (avoid raw \`bundle exec\` unless Homebrew Ruby is first on PATH — conda often breaks it.)"
+echo "Safari: WebKitErrorDomain:305 = HTTPS-Only blocks http:// — uncheck “Always use secure connections”"
+echo "  (Safari → Settings → Privacy), or preview in Chrome/Firefox."
+
+if [[ "${JEKYLL_LIVERELOAD:-1}" == "1" ]]; then
+  exec bundle exec jekyll serve --livereload -H "$HOST" -P "$PORT"
+else
+  exec bundle exec jekyll serve -H "$HOST" -P "$PORT"
+fi

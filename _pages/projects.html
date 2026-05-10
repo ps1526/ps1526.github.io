@@ -1,0 +1,36 @@
+---
+layout: archive
+title: "Projects"
+permalink: /projects/
+author_profile: true
+redirect_from:
+  - /portfolio/
+  - /portfolio.html
+---
+
+{% include base_path %}
+
+<div class="projects-page" markdown="0">
+  <p class="projects-page__intro">Here are some of the projects I am working on right now; more code and experiments live on {% if site.author.github %}<a href="https://github.com/{{ site.author.github }}" rel="noopener noreferrer">GitHub</a>{% else %}GitHub{% endif %}.</p>
+</div>
+
+{% comment %}Collection has output:false — docs are only used as data for this list.{% endcomment %}
+{% if site.collections.projects %}
+  {% assign projects_sorted = site.collections.projects.docs | sort: "relative_path" | reverse %}
+{% else %}
+  {% assign projects_sorted = site.projects %}
+{% endif %}
+
+{% if projects_sorted %}
+<ul class="project-lineup">
+  {% for p in projects_sorted %}
+  <li class="project-lineup__item">
+    <a href="{{ p.repo }}" rel="noopener noreferrer">{{ p.title }}</a>
+    <span class="project-lineup__desc"> — {{ p.excerpt | markdownify | strip_html | strip }}</span>
+    {% if p.demo %}
+      <span> · <a href="{{ p.demo }}" rel="noopener noreferrer">demo</a></span>
+    {% endif %}
+  </li>
+  {% endfor %}
+</ul>
+{% endif %}

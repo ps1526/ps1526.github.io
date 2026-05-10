@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Uses this repo’s Ruby/Bundler (Homebrew ruby@3.3). Do not run bare `jekyll` or system `bundle`.
+set -euo pipefail
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+cd "$ROOT"
+# shellcheck source=/dev/null
+source "${ROOT}/bin/ruby-env.sh"
+academicwebsite_prepend_ruby || exit 1
+exec bundle exec jekyll build "$@"

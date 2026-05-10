@@ -1,0 +1,197 @@
+/* Larger sidebar headshot (theme default max-width: 175px) */
+.sidebar .author__avatar img {
+  max-width: 260px;
+  width: 100%;
+  height: auto;
+}
+
+/* Slightly tighter horizontal padding so content can use more width */
+#main {
+  padding-left: 0.65rem;
+  padding-right: 0.65rem;
+  padding-bottom: 3rem;
+}
+
+@include breakpoint($large) {
+  #main {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+
+  /* Extra air between profile column and main text (works with Susy prefix on .page / .archive) */
+  .sidebar {
+    padding-right: 0.5rem;
+    box-sizing: border-box;
+  }
+}
+
+@include breakpoint($medium) {
+  #main {
+    padding-bottom: 4.5rem;
+  }
+}
+
+.page__footer {
+  margin-top: 1rem;
+}
+
+/* Main column: comfortable reading; slightly below the prior 1.5rem bump */
+.page__title {
+  font-size: 1.45rem !important;
+  line-height: 1.35;
+}
+
+@include breakpoint($medium) {
+  .page__title {
+    font-size: 1.45rem !important;
+  }
+}
+
+.page__content {
+  font-size: 1.25rem;
+
+  p,
+  li {
+    font-size: 1.25rem;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+    margin-top: 1.25em;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+  }
+}
+
+/*
+ * Masthead: line up with #main edges (same max-width + horizontal padding as content),
+ * slightly larger links, vertically centered in the bar.
+ */
+.masthead__inner-wrap {
+  display: flex;
+  align-items: center;
+  min-height: $masthead-height;
+  box-sizing: border-box;
+  padding-top: 0.4em;
+  padding-bottom: 0.4em;
+  padding-left: 0.65rem;
+  padding-right: 0.65rem;
+
+  @include breakpoint($large) {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+
+  @include breakpoint($x-large) {
+    max-width: 1560px;
+  }
+}
+
+.masthead__menu {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+
+  /* Same horizontal band as .page: after sidebar (2 cols) + lead-in (1 col), with trailing suffix */
+  @include breakpoint($large) {
+    @include prefix(3 of 12);
+    @include suffix(0.5 of 12);
+  }
+}
+
+.greedy-nav {
+  width: 100%;
+
+  a {
+    font-size: 1.08rem;
+    padding-top: 0.4rem;
+    padding-bottom: 0.4rem;
+  }
+
+  .masthead__menu-item--lg a {
+    font-size: 1.12rem;
+    font-weight: 700;
+  }
+
+  #theme-toggle a {
+    font-size: 1.1rem;
+  }
+}
+
+/* Projects list: one line per project */
+.project-lineup {
+  list-style: disc;
+  padding-left: 1.25rem;
+  margin-top: 0.5rem;
+  font-size: 1.25rem;
+}
+
+.project-lineup__item {
+  margin-bottom: 0.65rem;
+  line-height: 1.45;
+  font-size: 1.25rem;
+}
+
+.project-lineup__desc {
+  color: inherit;
+  opacity: 0.88;
+}
+
+/* Projects page: intro + extra space above footer */
+.projects-page__intro {
+  margin-bottom: 1.25rem;
+  line-height: 1.5;
+  font-size: 1.25rem;
+}
+
+.projects-page .project-lineup {
+  margin-bottom: 0;
+}
+
+.archive:has(.projects-page) {
+  padding-bottom: 4rem;
+}
+
+@include breakpoint($medium) {
+  .archive:has(.projects-page) {
+    padding-bottom: 5.5rem;
+  }
+}
+
+/*
+ * Author sidebar: smaller than main column; rem avoids nested-em shrink.
+ * Location / school / links share the social-icons list font-size.
+ */
+.sidebar .author__name,
+.sidebar .author__pronouns,
+.sidebar .author__bio {
+  font-size: 1.08rem !important;
+  line-height: 1.45;
+}
+
+.sidebar .author__urls.social-icons {
+  font-size: 1rem;
+
+  a {
+    font-size: 1rem;
+  }
+
+  /* Monochrome social icons like location / email */
+  .fa-linkedin,
+  .fab.fa-linkedin,
+  .fa-brands.fa-linkedin {
+    color: currentColor !important;
+  }
+
+  .sidebar-icon--github {
+    width: 1.15rem;
+    height: 1.15rem;
+    vertical-align: -0.2em;
+    display: inline-block;
+    flex-shrink: 0;
+  }
+}

@@ -1,0 +1,10 @@
+# Site title links to home (/), same as About. GitHub is in the author sidebar (below LinkedIn).
+main:
+  - title: "About"
+    url: /
+
+  - title: "Projects"
+    url: /projects/
+
+  - title: "CV"
+    url: /cv/
