@@ -35,6 +35,38 @@
   margin-top: 1rem;
 }
 
+/* CV page: smaller type + link row above the PDF viewer */
+.page--cv {
+  .page__title {
+    font-size: 1.15rem !important;
+    line-height: 1.3;
+  }
+
+  .page__content {
+    font-size: 1rem;
+
+    p,
+    li {
+      font-size: 1rem;
+    }
+  }
+
+  .cv-page__meta {
+    font-size: 0.95rem;
+    line-height: 1.45;
+    margin-bottom: 0.75rem;
+
+    p {
+      font-size: 0.95rem;
+      margin: 0 0 0.35rem;
+    }
+  }
+
+  .cv-pdf-frame iframe {
+    max-height: 80vh;
+  }
+}
+
 /* Main column: comfortable reading; slightly below the prior 1.5rem bump */
 .page__title {
   font-size: 1.45rem !important;
