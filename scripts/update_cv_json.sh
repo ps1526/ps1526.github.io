@@ -6,8 +6,8 @@
 # Set the base directory to the repository root
 BASE_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
-# Define file paths
-CV_MARKDOWN="$BASE_DIR/_pages/cv.md"
+# Define file paths (CV nav uses the PDF; set CV_MARKDOWN to your source .md if you use this converter)
+CV_MARKDOWN="${CV_MARKDOWN:-$BASE_DIR/_pages/cv.md}"
 CV_JSON="$BASE_DIR/_data/cv.json"
 CONFIG_FILE="$BASE_DIR/_config.yml"
 
@@ -21,6 +21,7 @@ fi
 # Check if the markdown CV exists
 if [ ! -f "$CV_MARKDOWN" ]; then
   echo "Error: Markdown CV not found at $CV_MARKDOWN"
+  echo "Hint: the site CV link opens files/PranavSinghCV.pdf. To convert from markdown, set CV_MARKDOWN to your input file."
   exit 1
 fi
 
