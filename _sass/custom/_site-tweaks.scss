@@ -186,15 +186,17 @@
   .fa-brands.fa-linkedin {
     color: currentColor !important;
   }
+}
 
-  .sidebar-icon--github,
-  .sidebar-icon--scholar,
-  .sidebar-icon--email,
-  .sidebar-icon--linkedin {
-    width: 1.15rem;
-    height: 1.15rem;
-    vertical-align: -0.2em;
-    display: inline-block;
-    flex-shrink: 0;
-  }
+/* Inline SVG sidebar icons: keep sizing global (not scoped to .sidebar) so they
+   render correctly in every author-profile context, not just the sticky sidebar. */
+.sidebar-icon--github,
+.sidebar-icon--scholar,
+.sidebar-icon--email,
+.sidebar-icon--linkedin {
+  width: 1.15rem;
+  height: 1.15rem;
+  vertical-align: -0.2em;
+  display: inline-block;
+  flex-shrink: 0;
 }
