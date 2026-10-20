@@ -187,7 +187,10 @@
     color: currentColor !important;
   }
 
-  .sidebar-icon--github {
+  .sidebar-icon--github,
+  .sidebar-icon--scholar,
+  .sidebar-icon--email,
+  .sidebar-icon--linkedin {
     width: 1.15rem;
     height: 1.15rem;
     vertical-align: -0.2em;
