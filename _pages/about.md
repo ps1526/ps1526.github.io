@@ -7,7 +7,7 @@ redirect_from:
   - /about.html
 ---
 
-I am an undergrad Data Science student at UCSD with a Math minor. I am broadly interested in generalization and robustness—whether for audio data, graph learning, or algorithms—as well as designing inductive biases for neural network architectures that improve performance over traditional approaches.
+I am an undergrad Data Science student at UCSD with a Math minor. I am broadly interested in generalization and robustness, whether that be for audio data, graph learning, or algorithms, as well as designing inductive biases for neural network architectures that improve performance over traditional neural networks.
 
 Recently, my research has focused on neural algorithmic reasoning and LLMs for algorithm discovery.
 
